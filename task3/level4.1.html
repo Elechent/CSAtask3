@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var data = {
+                age: 18,
+                name: "liuruchao",
+                education: ["小学", "初中", "高中", "大学", undefined, null],
+                likesFood: new Set(["fish", "banana"]),
+                friends: [
+                        { name: "summer",  sex: "woman"},
+                        { name: "daWen",   sex: "woman"},
+                        { name: "yang",    sex: "man" }  ], 
+                work: { 
+                        time: "2019", 
+                        project: { name: "test",obtain: ["css", "html", "js"]} 
+                        }, 
+                play: function() {    console.log("玩滑板");  }
+            }
+        function deepCopy(obj){
+            var newData = obj instanceof Array ? [] : {};
+            for(let key in obj){
+                if(typeof obj[key] === 'object'){
+                    newData[key] =  deepCopy(obj[key]);
+                }else{
+                    newData[key] = obj[key]
+                }
+            }
+            return newData;
+        }
+        let data1 = deepCopy(data)
+        console.log(data1)
+        console.log(data)
+        data1.work.time = 33 // 改变一下data1工作时间的值 看data的工作时间有没有改变
+        console.log(data1.work.time) // 33
+        console.log(data.work.time) // 2019 深拷贝成功
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

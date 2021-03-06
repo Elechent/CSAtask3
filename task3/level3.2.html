@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Animal(){
+            this.species = "动物"
+        }
+        function Cat(name,color){
+            this.name = name
+            this.color = color
+        }
+        let Animal1 = new Animal();
+        let cat1 = new Cat("大毛","黄色");
+        for (let key in Animal1){
+            cat1[key] = Animal1[key];
+        }
+        console.log("拷贝：")
+        console.log(cat1)
+        console.log(Animal1)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
